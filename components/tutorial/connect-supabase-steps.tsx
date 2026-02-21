@@ -37,8 +37,25 @@ export function ConnectSupabaseSteps() {
           >
             your Supabase project&apos;s API Settings
           </a>
-          .
+          . Make sure to also set{" "}
+          <span className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground border">
+            SUPABASE_SERVICE_ROLE_KEY
+          </span>{" "}
+          and{" "}
+          <span className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground border">
+            PULSE_SECRET
+          </span>{" "}
+          (a 16+ character password for your analytics dashboard).
         </p>
+      </TutorialStep>
+
+      <TutorialStep title="Run database migrations">
+        <p>
+          Link your Supabase project and push the PulseKit database migrations:
+        </p>
+        <pre className="mt-2 rounded bg-muted px-3 py-2 font-mono text-xs text-secondary-foreground border overflow-x-auto">
+          npx supabase link{"\n"}npx supabase db push
+        </pre>
       </TutorialStep>
 
       <TutorialStep title="Restart your Next.js development server">

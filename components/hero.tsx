@@ -1,4 +1,5 @@
 import { NextLogo } from "./next-logo";
+import { PulsekitLogo } from "./pulsekit-logo";
 import { SupabaseLogo } from "./supabase-logo";
 
 export function Hero() {
@@ -16,8 +17,16 @@ export function Hero() {
         <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
           <NextLogo />
         </a>
+        <span className="border-l rotate-45 h-6" />
+        <a
+          href="https://github.com/benoiteom/pulsekit"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <PulsekitLogo />
+        </a>
       </div>
-      <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
+      <h1 className="sr-only">Supabase, Next.js, and PulseKit Starter Template</h1>
       <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center">
         The fastest way to build apps with{" "}
         <a
@@ -27,8 +36,8 @@ export function Hero() {
           rel="noreferrer"
         >
           Supabase
-        </a>{" "}
-        and{" "}
+        </a>
+        ,{" "}
         <a
           href="https://nextjs.org/"
           target="_blank"
@@ -36,6 +45,15 @@ export function Hero() {
           rel="noreferrer"
         >
           Next.js
+        </a>
+        , and{" "}
+        <a
+          href="https://github.com/benoiteom/pulsekit"
+          target="_blank"
+          className="font-bold hover:underline"
+          rel="noreferrer"
+        >
+          PulseKit
         </a>
       </p>
       <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent my-8" />

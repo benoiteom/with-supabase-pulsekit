@@ -73,6 +73,15 @@ export function SignUpUserSteps() {
           </Link>
         </TutorialStep>
       ) : null}
+      <TutorialStep title="Run database migrations">
+        <p>
+          Link your Supabase project and push the PulseKit database migrations
+          to set up analytics tables:
+        </p>
+        <pre className="mt-2 rounded bg-muted px-3 py-2 font-mono text-xs text-secondary-foreground border overflow-x-auto">
+          npx supabase link{"\n"}npx supabase db push
+        </pre>
+      </TutorialStep>
       <TutorialStep title="Sign up your first user">
         <p>
           Head over to the{" "}
@@ -85,6 +94,30 @@ export function SignUpUserSteps() {
           page and sign up your first user. It&apos;s okay if this is just you
           for now. Your awesome idea will have plenty of users later!
         </p>
+      </TutorialStep>
+      <TutorialStep title="View your analytics dashboard">
+        <p>
+          PulseKit is already tracking page views, Web Vitals, and errors.
+          Visit your{" "}
+          <Link
+            href="/admin/analytics"
+            className="font-bold hover:underline text-foreground/80"
+          >
+            analytics dashboard
+          </Link>{" "}
+          to see your data. You&apos;ll be prompted to log in with the{" "}
+          <span className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-medium text-secondary-foreground border">
+            PULSE_SECRET
+          </span>{" "}
+          you set in your environment variables.
+        </p>
+        <Link
+          href="https://github.com/benoiteom/pulsekit"
+          target="_blank"
+          className="text-primary/50 hover:text-primary flex items-center text-sm gap-1 mt-4"
+        >
+          PulseKit Docs <ArrowUpRight size={14} />
+        </Link>
       </TutorialStep>
     </ol>
   );

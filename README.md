@@ -1,109 +1,119 @@
-<a href="https://demo-nextjs-with-supabase.vercel.app/">
-  <img alt="Next.js and Supabase Starter Kit - the fastest way to build apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
-  <h1 align="center">Next.js and Supabase Starter Kit</h1>
-</a>
+<h1 align="center">Next.js + Supabase + PulseKit Starter</h1>
 
 <p align="center">
- The fastest way to build apps with Next.js and Supabase
+  The fastest way to build apps with Next.js, Supabase, and privacy-friendly analytics
 </p>
 
 <p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#demo"><strong>Demo</strong></a> ·
-  <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> ·
-  <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
-  <a href="#more-supabase-examples"><strong>More Examples</strong></a>
+  <a href="#features"><strong>Features</strong></a> &middot;
+  <a href="#demo"><strong>Demo</strong></a> &middot;
+  <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> &middot;
+  <a href="#clone-and-run-locally"><strong>Clone and Run Locally</strong></a> &middot;
+  <a href="#project-structure"><strong>Project Structure</strong></a>
 </p>
 <br/>
 
+This template extends the official [Next.js Supabase Starter](https://github.com/vercel/next.js/tree/canary/examples/with-supabase) with [PulseKit](https://github.com/benoiteom/pulsekit) — a lightweight, privacy-friendly analytics toolkit that stores all data in your own Supabase database.
+
 ## Features
 
-- Works across the entire [Next.js](https://nextjs.org) stack
-  - App Router
-  - Pages Router
-  - Proxy
-  - Client
-  - Server
-  - It just works!
-- supabase-ssr. A package to configure Supabase Auth to use cookies
-- Password-based authentication block installed via the [Supabase UI Library](https://supabase.com/ui/docs/nextjs/password-based-auth)
-- Styling with [Tailwind CSS](https://tailwindcss.com)
-- Components with [shadcn/ui](https://ui.shadcn.com/)
-- Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
-  - Environment variables automatically assigned to Vercel project
+- **Next.js App Router** — works across Server Components, Client Components, Route Handlers, Server Actions, and Middleware
+- **Supabase Auth** — cookie-based authentication via `@supabase/ssr`, with password-based auth from the [Supabase UI Library](https://supabase.com/ui/docs/nextjs/password-based-auth)
+- **PulseKit Analytics** — automatic page view tracking, Web Vitals (LCP, INP, CLS, FCP, TTFB), error reporting, and geo-location stats
+- **Analytics Dashboard** — built-in dashboard at `/admin/analytics` with password-protected access
+- **Data Lifecycle** — automatic aggregation and cleanup of old raw events to keep your database lean
+- **Security Hardened** — RLS policies with minimum-privilege grants per role, validated event types on insert
+- **Tailwind CSS + shadcn/ui** — styled with [Tailwind CSS](https://tailwindcss.com) and [shadcn/ui](https://ui.shadcn.com/) components
 
 ## Demo
 
-You can view a fully working demo at [demo-nextjs-with-supabase.vercel.app](https://demo-nextjs-with-supabase.vercel.app/).
+<!-- TODO: Replace with your live demo URL -->
+You can view a fully working demo at [DEMO_URL](DEMO_URL).
 
 ## Deploy to Vercel
 
-Vercel deployment will guide you through creating a Supabase account and project.
+Vercel deployment will guide you through creating a Supabase account and project. After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
 
-After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbenoiteom%2Fwith-supabase-pulsekit&project-name=nextjs-supabase-pulsekit&repository-name=with-supabase-pulsekit&demo-title=Next.js+Supabase+PulseKit&demo-description=Next.js+starter+with+Supabase+auth+and+PulseKit+privacy-friendly+analytics.&demo-url=DEMO_URL&external-id=https%3A%2F%2Fgithub.com%2Fbenoiteom%2Fwith-supabase-pulsekit)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&demo-title=nextjs-with-supabase&demo-description=This+starter+configures+Supabase+Auth+to+use+cookies%2C+making+the+user%27s+session+available+throughout+the+entire+Next.js+app+-+Client+Components%2C+Server+Components%2C+Route+Handlers%2C+Server+Actions+and+Middleware.&demo-url=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2F&external-id=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&demo-image=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png)
+After deploying, you will still need to:
 
-The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
+1. Set the `PULSE_SECRET` environment variable in Vercel (a 16+ character password for your analytics dashboard)
+2. Set the `SUPABASE_SERVICE_ROLE_KEY` environment variable in Vercel
+3. Run the database migrations (see [below](#3-run-database-migrations))
 
-If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
+## Clone and Run Locally
 
-## Clone and run locally
+### 1. Create a Supabase project
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+Create a new project via the [Supabase dashboard](https://database.new).
 
-2. Create a Next.js app using the Supabase Starter template npx command
+### 2. Clone the repository
 
-   ```bash
-   npx create-next-app --example with-supabase with-supabase-app
-   ```
+```bash
+git clone https://github.com/benoiteom/with-supabase-pulsekit.git
+cd with-supabase-pulsekit
+npm install
+```
 
-   ```bash
-   yarn create next-app --example with-supabase with-supabase-app
-   ```
+### 3. Set up environment variables
 
-   ```bash
-   pnpm create next-app --example with-supabase with-supabase-app
-   ```
+Rename `.env.example` to `.env.local` and fill in the values:
 
-3. Use `cd` to change into the app's directory
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-publishable-or-anon-key
+PULSE_SECRET=your-analytics-dashboard-password
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+```
 
-   ```bash
-   cd with-supabase-app
-   ```
+> [!NOTE]
+> `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` can be found in [your Supabase project's API settings](https://supabase.com/dashboard/project/_?showConnect=true). `SUPABASE_SERVICE_ROLE_KEY` is in the same place under "Service Role". `PULSE_SECRET` is a password you create (16+ characters) to protect your analytics dashboard.
 
-4. Rename `.env.example` to `.env.local` and update the following:
+### 4. Run database migrations
 
-  ```env
-  NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-  NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=[INSERT SUPABASE PROJECT API PUBLISHABLE OR ANON KEY]
-  ```
-  > [!NOTE]
-  > This example uses `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, which refers to Supabase's new **publishable** key format.
-  > Both legacy **anon** keys and new **publishable** keys can be used with this variable name during the transition period. Supabase's dashboard may show `NEXT_PUBLIC_SUPABASE_ANON_KEY`; its value can be used in this example.
-  > See the [full announcement](https://github.com/orgs/supabase/discussions/29260) for more information.
+Link your Supabase project and push the PulseKit schema:
 
-  Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` can be found in [your Supabase project's API settings](https://supabase.com/dashboard/project/_?showConnect=true)
+```bash
+npx supabase link
+npx supabase db push
+```
 
-5. You can now run the Next.js local development server:
+This creates the `analytics` schema with tables for events and aggregates, plus RPC functions for querying stats.
 
-   ```bash
-   npm run dev
-   ```
+### 5. Start the development server
 
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
+```bash
+npm run dev
+```
 
-6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
+The app should now be running on [localhost:3000](http://localhost:3000/).
 
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
+## Project Structure
 
-## Feedback and issues
+```
+├── app/
+│   ├── admin/analytics/     # PulseKit analytics dashboard (password-protected)
+│   ├── api/pulse/           # Analytics API routes (ingestion, auth, aggregation, cleanup)
+│   ├── auth/                # Supabase auth pages (login, sign-up, callback, etc.)
+│   └── protected/           # Example protected page
+├── components/
+│   ├── pulse-tracker-wrapper.tsx  # PulseKit tracker (auto page views, vitals, errors)
+│   └── tutorial/            # Setup guide shown on the home page
+├── instrumentation.ts       # Server-side error reporting via PulseKit
+├── lib/supabase/            # Supabase client helpers and middleware proxy
+└── supabase/migrations/     # SQL migrations for the analytics schema
+```
 
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
+### How PulseKit Works in This Template
 
-## More Supabase examples
+- **Tracking** — `PulseTrackerWrapper` in the root layout automatically captures page views, Web Vitals, and client-side errors. No manual instrumentation needed.
+- **Server Errors** — `instrumentation.ts` uses `createPulseErrorReporter` to capture server-side errors via Next.js's `onRequestError` hook.
+- **Ingestion** — Events are sent to `/api/pulse` which writes them to the `analytics.pulse_events` table in Supabase.
+- **Dashboard** — `/admin/analytics` renders the `PulseDashboard` component, protected by `PulseAuthGate` (uses `PULSE_SECRET`).
+- **Data Lifecycle** — `/api/pulse/consolidate` rolls old raw events into daily aggregates and cleans up, keeping your database lean.
 
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+## Feedback and Issues
+
+- PulseKit: [github.com/benoiteom/pulsekit/issues](https://github.com/benoiteom/pulsekit/issues)
+- Supabase: [github.com/supabase/supabase/issues](https://github.com/supabase/supabase/issues/new/choose)
