@@ -1,5 +1,12 @@
 <h1 align="center">Next.js + Supabase + PulseKit Starter</h1>
 
+<br/>
+<p align="center">
+  <img alt="Next.js Supabase PulseKit Starter" src="app/opengraph-image.png" />
+</p>
+<br/>
+
+<divider />
 <p align="center">
   The fastest way to build apps with Next.js, Supabase, and privacy-friendly analytics
 </p>
@@ -28,13 +35,13 @@ This template extends the official [Next.js Supabase Starter](https://github.com
 ## Demo
 
 <!-- TODO: Replace with your live demo URL -->
-You can view a fully working demo at [DEMO_URL](DEMO_URL).
+You can view a fully working demo at [https://with-supabase-pulsekit-template.vercel.app/](https://with-supabase-pulsekit-template.vercel.app/).
 
 ## Deploy to Vercel
 
 Vercel deployment will guide you through creating a Supabase account and project. After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbenoiteom%2Fwith-supabase-pulsekit&project-name=nextjs-supabase-pulsekit&repository-name=with-supabase-pulsekit&demo-title=Next.js+Supabase+PulseKit&demo-description=Next.js+starter+with+Supabase+auth+and+PulseKit+privacy-friendly+analytics.&demo-url=DEMO_URL&external-id=https%3A%2F%2Fgithub.com%2Fbenoiteom%2Fwith-supabase-pulsekit)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbenoiteom%2Fwith-supabase-pulsekit&project-name=nextjs-supabase-pulsekit&repository-name=with-supabase-pulsekit&demo-title=Next.js+Supabase+PulseKit&demo-description=Next.js+starter+with+Supabase+auth+and+PulseKit+privacy-friendly+analytics.&demo-url=https://with-supabase-pulsekit-template.vercel.app&external-id=https%3A%2F%2Fgithub.com%2Fbenoiteom%2Fwith-supabase-pulsekit)
 
 After deploying, you will still need to:
 
